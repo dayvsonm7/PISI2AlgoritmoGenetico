@@ -15,6 +15,9 @@ quantpontos = int(problem.dimension)  # quantidade de pontos do arquivo TSP
 distances = [[problem.get_weight(i, j) for j in range(1, problem.dimension + 1)] for i in range(1, problem.dimension + 1)]  # matriz de distâncias entre os pontos
 # atributos
 letrasdospontos = list(range(1, quantpontos + 1))  # lista com os números dos pontos
+coordenadas = []
+for x in range (quantpontos):
+    coordenadas.append (problem.node_coords[x+1])
 
 
 
@@ -231,7 +234,16 @@ melhorindividuoeverglobal.append (min(listafinal)[0])
 melhorindividuotamanhopercursoglobal = []
 melhorindividuotamanhopercursoglobal.append (min(listafinal)[1])
 
+solucao1 = []
+solucao1.append (melhorindividuoeverglobal[0])
 
+solucao1t = melhorindividuotamanhopercursoglobal[0]
+solucao2 = []
+solucao2t = 0
+solucao3 = []
+solucao3t = 0
+solucaofim = []
+solucaofimt = 0
 
 
 
@@ -249,6 +261,18 @@ for geracao in range(numgeracoes): #Ngerações
         melhorindividuoeverglobal = []
         melhorindividuoeverglobal.append(melhorindividuolocal[0])
 
+    if geracao == 500:
+        solucao2.append (melhorindividuoeverglobal[0])
+        
+        solucao2t=melhorindividuotamanhopercursoglobal[0]
+    if geracao == 2000:
+        solucao3.append (melhorindividuoeverglobal[0])
+        
+        solucao3t = melhorindividuotamanhopercursoglobal[0]
+    if geracao == 9999:
+        solucaofim.append (melhorindividuoeverglobal[0])
+        
+        solucaofimt = melhorindividuotamanhopercursoglobal[0]
     
 
     if geracao<numgeracoes-1:
@@ -320,4 +344,32 @@ for geracao in range(numgeracoes): #Ngerações
     aptidoes = aptidao(dronometros)
     listafinal = list(zip(caminhos, dronometros))
 
-        
+
+
+solucao1[0].append(solucao1[0][0])
+plt.plot([coordenadas[p-1][0] for p in solucao1[0]], [coordenadas[p-1][1] for p in solucao1[0]], marker='o', markersize=2)
+plt.axis('scaled'); plt.axis('on')
+plt.title('Geração 1')
+plt.xlabel(solucao1t)
+plt.show()
+
+solucao2[0].append(solucao2[0][0])
+plt.plot([coordenadas[p-1][0] for p in solucao2[0]], [coordenadas[p-1][1] for p in solucao2[0]], marker='o', markersize=2)
+plt.axis('scaled'); plt.axis('on')
+plt.title('Geração 500')
+plt.xlabel(solucao2t)
+plt.show()
+
+solucao3[0].append(solucao3[0][0])
+plt.plot([coordenadas[p-1][0] for p in solucao3[0]], [coordenadas[p-1][1] for p in solucao3[0]], marker='o', markersize=2)
+plt.axis('scaled'); plt.axis('on')
+plt.title('Geração 2000')
+plt.xlabel(solucao3t)
+plt.show()
+
+solucaofim[0].append(solucaofim[0][0])
+plt.plot([coordenadas[p-1][0] for p in solucaofim[0]], [coordenadas[p-1][1] for p in solucaofim[0]], marker='o', markersize=2)
+plt.axis('scaled'); plt.axis('on')
+plt.title('Geração 9999')
+plt.xlabel(solucaofimt)
+plt.show()
