@@ -1,8 +1,4 @@
-# algoritmo genético para calcular o problema do TSP1
-#este exato código com aproximadamente 9000 gerações encontrou um caminho de distância apriximada 38000. Ao
-#finalizar, encontrou [1,2,3,4,5,7,9,13,14,17,16,20,21,18,19,22,26,25,24,27,28,29,23,15,11,10,12,8,6]
-#de distância 37329. Esse valor excede em 9726 o caminho encontrado em https://www.math.uwaterloo.ca/tsp/world/witour.html
-#Western Sahara WI29
+# algoritmo genético para calcular o problema do TSP
 
 # imports
 import matplotlib.pyplot as plt  # biblioteca para gerar gráficos
