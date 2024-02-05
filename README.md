@@ -1,1 +1,1 @@
-O arquivo .py e os arquivos .tsp devem estar na mesma pasta.
+Repositório do código do Algoritmo Genético realizado para a disciplina de Projeto Interdisciplinar de Sistemas de Informação II.
